@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="container">
+  <section id="login">
+    <h1>Login</h1>
+    <div>
+      <div class="element">
+        <label for="username">Email</label>
+        <input id="username" type="text" placeholder="Email" [(ngModel)]="userName">
+      </div>
+      <div class="element">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="password" [(ngModel)]="password" class="form-control"/>
+      </div>
+      <div class="element">
+        <button (click)="login()">Login</button>
+      </div>
+    </div>
+  </section>
+</div>

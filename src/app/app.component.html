@@ -1,22 +1,26 @@
 <header>
   <div class="container">
-    <a href="" class="logo">MyFirstApp</a>
-    <nav>
+    <nav class="menu">
       <ul>
         <li>
           <a href="#" class="nav-element" routerLink="/">Home</a>
         </li>
-        <li>
-          <a href="#" class="nav-element" routerLink="/login">Login</a>
+        <li *ngIf="_auth.logIn()">
+          <a href="#" class="nav-element" routerLink="/item">Add item</a>
         </li>
-        <li>
-          <a href="#" class="nav-element" routerLink="/item">List of items</a>
-        </li>
-        <li>
+        <li *ngIf="_auth.logIn()">
           <a href="#" class="nav-element" routerLink="/list">List of items</a>
         </li>
       </ul>
     </nav>
+    <div class="profile-menu">
+      <li *ngIf="!_auth.logIn()">
+        <a href="#" class="nav-element" routerLink="/login" >Login</a>
+      </li>
+      <li *ngIf="_auth.logIn()">
+        <a href="#" class="nav-element" (click)="_auth.logout()">Logout</a>
+      </li>
+    </div>
   </div>
 </header>
 

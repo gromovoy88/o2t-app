@@ -1,8 +1,11 @@
-<h1>Items:</h1>
-
-<ul *ngIf="items">
-  <li *ngFor="let item of items">
-    <p class="name">{{ item.id }}</p>
-    <p class="country"> {{ item.name}}</p>
-  </li>
-</ul>
+<div class="container">
+  <section id="list">
+    <h1>Items:</h1>
+    <ul *ngIf="items">
+      <li *ngFor="let item of items">
+        <p class="name">{{ item.id }}</p>
+        <p class="country"> {{ item.name}}</p>
+      </li>
+    </ul>
+  </section>
+</div>

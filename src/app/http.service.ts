@@ -6,18 +6,19 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  apiUrl = 'http://frontend-recruitment.one2tribe.pl:8080/api/v1/item';
-  authToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIi' +
-    'wiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6IkNCZ2NEU1dhIiwiZXhwIjoxNTY4MjI0NTcxLCJyb2wiOlsiVXNl' +
-    'ciJdfQ.R47A1d09RfvonnDsBMWbjJvcaN67YvZThLP457NgXWbFP2VplRQxKE5EyOkOkDFxHF6K5eZXy3fMbp3cX7yRdw';
-  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.authToken);
+  api = 'http://frontend-recruitment.one2tribe.pl:8080/api';
+  resource = '/v1/item';
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) { }
 
   getItems() {
-    return this.http.get(this.apiUrl, { headers: this.headers });
+    return this.http.get(this.api + this.resource,
+      { headers: this.headers.set('Authorization', localStorage.getItem('token')) });
   }
 
   addItem(value) {
-    return this.http.post(this.apiUrl, { name: value }, { headers: this.headers });
+    return this.http.post(this.api + this.resource,
+      { name: value },
+      { headers: this.headers.set('Authorization', localStorage.getItem('token')) });
   }
 }

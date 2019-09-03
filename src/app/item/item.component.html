@@ -1,7 +1,10 @@
-<div class="item-container">
-  <p>
-    <input type="text" [(ngModel)]="name">
-    <br>
-    <button (click)="itemAdd()">Add new item</button>
-  </p>
+<div class="container">
+  <section id="item">
+    <h1>Add item:</h1>
+    <div class="element">
+      <label for="name">Items name</label>
+      <input id="name" type="text" placeholder="Enter some name" [(ngModel)]="name">
+      <button type="submit" (click)="itemAdd()">Add new item</button>
+    </div>
+  </section>
 </div>
