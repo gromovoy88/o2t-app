@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuardService {
 
-  constructor(public auth: AuthService, public router: Router) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   canActivate(): boolean {
     if (!this.auth.logIn()) {

@@ -21,6 +21,9 @@ export class AuthService {
         this.token = resp.headers.get('Authorization');
         localStorage.setItem('token', this.token);
         this.router.navigate(['list']);
+      }, (error) => {
+        alert('Wrong credentials');
+        console.log(error);
       });
   }
 
