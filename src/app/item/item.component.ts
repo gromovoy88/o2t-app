@@ -16,6 +16,9 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Creating new Item
+   */
   itemAdd() {
     this._http.addItem(this.name);
     this.name = '';

@@ -11,6 +11,11 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+  /**
+   * Method for getting JWT Token from server, and save to local storage
+   * @param userName - User name
+   * @param password - Password
+   */
   login(userName: string, password: string) {
     this.http.post(this.api + '/authenticate', { username : userName, password }, {
       headers: new HttpHeaders()
@@ -27,14 +32,23 @@ export class AuthService {
       });
   }
 
+  /**
+   * Delete JWT token from local storage
+   */
   logout() {
     localStorage.removeItem('token');
   }
 
+  /**
+   * Getting boolean value of token state
+   */
   logIn(): boolean {
     return (localStorage.getItem('token') !== null);
   }
 
+  /**
+   * Getter for JWT token
+   */
   getToken(): string {
     return localStorage.getItem('token');
   }

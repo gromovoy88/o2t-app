@@ -12,11 +12,18 @@ export class HttpService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient, private router: Router) { }
 
+  /**
+   * Request for receive list of items
+   */
   getItems() {
     return this.http.get(this.api + this.resource,
       { headers: this.headers.set('Authorization', localStorage.getItem('token')) });
   }
 
+  /**
+   * Adding new Item
+   * @param value - Items Name
+   */
   addItem(value) {
     return this.http.post(this.api + this.resource,
       { name: value },
